@@ -4,7 +4,7 @@ A port of BB Agent Annotations at upstream commit `916d684ac23d0b0de82c09cfc7553
 
 Open a web page beside a thread. Toggle **Annotate elements**, click an element, enter feedback, and save. A numbered pin and compact composer reference appear. Edit a pin to update the unsent reference; Remove deletes it. Successful send/queue clears pins. Navigation clears the page pins. Saved messages keep immutable captured context.
 
-Requires a Zana core with `experimental_browserToolbarAction` and the scoped page bridge. Older versions show this information panel until upgraded. No browser automation service or separate Chrome is needed.
+Requires a Zana core containing [the annotation support in PR #622](https://github.com/salesforce/zana/pull/622), including `experimental_browserToolbarAction` and the scoped page bridge. Older versions show this information panel until upgraded. No browser automation service or separate Chrome is needed.
 
 ## Install
 
