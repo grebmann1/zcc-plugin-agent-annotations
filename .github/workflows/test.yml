@@ -1,0 +1,44 @@
+name: Plugin tests
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: plugin
+      - uses: actions/checkout@v4
+        with:
+          repository: salesforce/zana
+          ref: fb42480941b24f0d96b77d412e6d58d41658d415
+          path: zana
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.25.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+          cache-dependency-path: zana/pnpm-lock.yaml
+      - name: Install SDK harness dependencies
+        working-directory: zana
+        run: pnpm install --frozen-lockfile
+      - name: Install plugin dependencies
+        working-directory: plugin
+        run: npm ci
+      - name: Check types
+        working-directory: plugin
+        run: npm run typecheck
+      - name: Test plugin and original BB overlay
+        working-directory: plugin
+        env:
+          ZCC_PLUGIN_SDK_SOURCE: ${{ github.workspace }}/zana/packages/plugin-sdk/src
+        run: npm test

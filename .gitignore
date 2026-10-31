@@ -1,0 +1,15 @@
+node_modules/
+coverage/
+app.js
+app.js.map
+app.meta.json
+server.mjs
+server.mjs.map
+server.meta.json
+
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.DS_Store

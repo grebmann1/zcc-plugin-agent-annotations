@@ -1,0 +1,44 @@
+{
+  "name": "zcc-plugin-agent-annotations-9fc0",
+  "version": "0.1.0",
+  "type": "module",
+  "engines": {
+    "zcc": ">=1.0.0",
+    "zccPluginSdk": ">=0.1.0"
+  },
+  "zcc": {
+    "name": "Agent Annotations",
+    "description": "BB's Agent Annotations port for Zana: pin browser elements and add precise feedback to the thread composer.",
+    "branding": {
+      "icon": "MessageSquarePlus"
+    },
+    "server": "./server.ts",
+    "app": "./app.tsx"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^16.3.2",
+    "@types/node": "^24.19.2",
+    "@types/react": "^19.0.0",
+    "jsdom": "^26.1.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.10"
+  },
+  "dependencies": {
+    "zod": "^4.0.0"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/grebmann1/zcc-plugin-agent-annotations.git"
+  },
+  "homepage": "https://github.com/grebmann1/zcc-plugin-agent-annotations#readme",
+  "bugs": {
+    "url": "https://github.com/grebmann1/zcc-plugin-agent-annotations/issues"
+  }
+}
