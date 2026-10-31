@@ -231,40 +231,7 @@ export function AnnotateAction({
     </button>
   );
 }
-function Help() {
-  return (
-    <div
-      style={{
-        height: "100%",
-        padding: 24,
-        overflow: "auto",
-        boxSizing: "border-box",
-      }}
-    >
-      <h2>Agent Annotations</h2>
-      <p>
-        Open a web page beside a thread, then choose{" "}
-        <strong>Annotate elements</strong> in its browser toolbar.
-      </p>
-      <p>
-        Click an element, write your change, and save. Numbered pins attach the
-        element, selector, styles and React context to your composer. Edit or
-        remove pins before sending.
-      </p>
-      <p>
-        Successful sending clears the pins. Sent context remains a snapshot.
-      </p>
-      <small>Ported from BB · MIT license · Michael Yong</small>
-    </div>
-  );
-}
 export default definePluginApp((app) => {
-  app.slots.navPanel({
-    id: "help",
-    title: "Agent Annotations",
-    icon: "MessageSquarePlus",
-    component: Help,
-  });
   app.slots.experimental_browserToolbarAction?.({
     id: "annotate",
     title: "Agent annotations",

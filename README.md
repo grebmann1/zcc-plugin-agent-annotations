@@ -4,11 +4,18 @@ A port of BB Agent Annotations at upstream commit `916d684ac23d0b0de82c09cfc7553
 
 Open a web page beside a thread. Toggle **Annotate elements**, click an element, enter feedback, and save. A numbered pin and compact composer reference appear. Edit a pin to update the unsent reference; Remove deletes it. Successful send/queue clears pins. Navigation clears the page pins. Saved messages keep immutable captured context.
 
-Requires a Zana core containing [the annotation support in PR #622](https://github.com/salesforce/zana/pull/622), including `experimental_browserToolbarAction` and the scoped page bridge. Older versions show this information panel until upgraded. No browser automation service or separate Chrome is needed.
+Requires a Zana core containing [the annotation support in PR #622](https://github.com/salesforce/zana/pull/622), including `experimental_browserToolbarAction` and the scoped page bridge. Upgrade older versions to use the toolbar. No browser automation service or separate Chrome is needed.
 
 ## Install
 
 With an updated Zana desktop and its `zcc` CLI:
+
+```sh
+zcc marketplace add git:https://github.com/salesforce/zana-marketplace.git
+zcc marketplace install agent-annotations-9fc0@zana-community
+```
+
+For a local development checkout:
 
 ```sh
 git clone https://github.com/grebmann1/zcc-plugin-agent-annotations.git
@@ -17,7 +24,7 @@ zcc plugin install .
 zcc plugin dev --once
 ```
 
-The plugin stays a separate installation. Its toolbar appears in each thread's browser; the sidebar panel explains how to use it.
+The plugin stays a separate installation. Its annotation button appears in each thread's browser toolbar, with no sidebar item.
 
 ## Development
 

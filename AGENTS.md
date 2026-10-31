@@ -20,8 +20,8 @@ After install the plugin is live. Then, only as needed:
 Fill the host panel slot (`height: 100%`). Skills live in `skills/<name>/SKILL.md`.
 MCP servers belong in `zcc.mcpServers`. Author against `@zana-ai/zcc-plugin-sdk` (`definePluginApp`, `ZccPluginApi`).
 
-The `definePluginApp` setup registers `app.slots.experimental_browserToolbarAction`
-and a help panel with `app.slots.navPanel`. The toolbar receives page and composer
+The `definePluginApp` setup registers only `app.slots.experimental_browserToolbarAction`;
+there is no sidebar panel. The toolbar receives page and composer
 adapters scoped to its owning thread. `annotations.ts` and `page-script.ts` are
 unchanged BB sources; keep their provenance and `LICENSE-BB` when modifying the port.
 The server factory default-exports `(zcc) => { … }` and registers `zcc.rpc` methods the panel can call after a reload.

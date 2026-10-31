@@ -5,13 +5,13 @@ const app = await loadPluginApp(
   () => import("./app.tsx"),
   "agent-annotations-9fc0",
 );
-it("registers a single toolbar control and renders instructions", async () => {
+it("registers a single toolbar control without a sidebar panel", () => {
   expect(app.browserToolbarActions).toHaveLength(1);
-  const slot = renderSlot(app.navPanels[0]!, {
-    pluginId: "agent-annotations-9fc0",
-    subPath: "",
+  expect(app.browserToolbarActions[0]).toMatchObject({
+    id: "annotate",
+    title: "Agent annotations",
   });
-  expect(await slot.findByText(/Open a web page beside a thread/)).toBeTruthy();
+  expect(app.navPanels).toHaveLength(0);
 });
 
 import { act, cleanup, fireEvent, waitFor } from "@testing-library/react";
